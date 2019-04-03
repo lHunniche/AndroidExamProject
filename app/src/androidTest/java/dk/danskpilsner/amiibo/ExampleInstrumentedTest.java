@@ -1,4 +1,4 @@
-package dk.danskpilsner.xkcdbrowser;
+package dk.danskpilsner.amiibo;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

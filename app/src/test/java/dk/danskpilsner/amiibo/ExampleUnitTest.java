@@ -1,4 +1,4 @@
-package dk.danskpilsner.xkcdbrowser;
+package dk.danskpilsner.amiibo;
 
 import org.junit.Test;
 
