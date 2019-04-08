@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_animal_crossing"
+            android:icon="@drawable/animal_crossing"
+            android:title="Animal Crossing" />
+        <item
+            android:id="@+id/nav_bayonetta"
+            android:icon="@drawable/bayonetta"
+            android:title="Bayonetta" />
+        <item
+            android:id="@+id/nav_boxboy"
+            android:icon="@drawable/boxboy"
+            android:title="BoxBoy" />
+        <item
+            android:id="@+id/nav_chibi_robo"
+            android:icon="@drawable/chibi"
+            android:title="Chibi Robo" />
+        <item
+            android:id="@+id/nav_classic_nintendo"
+            android:icon="@drawable/classic"
+            android:title="Classic Nintendo" />
+        <item
+            android:id="@+id/nav_dark_souls"
+            android:icon="@drawable/darksouls"
+            android:title="Dark Souls" />
+        <item
+            android:id="@+id/nav_diablo"
+            android:title="Diablo" />
+        <item
+            android:id="@+id/nav_donkey_kong"
+            android:title="Donkey Kong" />
+        <item
+            android:id="@+id/nav_earthbound"
+            android:title="Earthbound" />
+        <item
+            android:id="@+id/nav_final_fantasy"
+            android:title="Final Fantasy" />
+        <item
+            android:id="@+id/nav_fire_emblem"
+            android:title="Fire Emblem" />
+        <item
+            android:id="@+id/nav_f_zero"
+            android:title="F-Zero" />
+        <item
+            android:id="@+id/nav_kellogs"
+            android:title="Kellogs" />
+        <item
+            android:id="@+id/nav_kid_icarus"
+            android:title="Kid Icarus" />
+        <item
+            android:id="@+id/nav_kirby"
+            android:title="Kirby" />
+        <item
+            android:id="@+id/nav_zelda"
+            android:title="The Legend of Zelda" />
+        <item
+            android:id="@+id/nav_mario_sports_superstars"
+            android:title="Mario Sports Superstars" />
+        <item
+            android:id="@+id/nav_megaman"
+            android:title="Megaman" />
+        <item
+            android:id="@+id/nav_metroid"
+            android:title="Metroid" />
+        <item
+            android:id="@+id/nav_Mii"
+            android:title="Mii" />
+        <item
+            android:id="@+id/nav_monster_hunter"
+            android:title="Monster Hunter" />
+        <item
+            android:id="@+id/nav_pac_man"
+            android:title="Pac-man" />
+        <item
+            android:id="@+id/nav_pikmin"
+            android:title="Pikmin" />
+        <item
+            android:id="@+id/nav_pokemon"
+            android:title="Pokémon" />
+        <item
+            android:id="@+id/nav_punch_out"
+            android:title="Punch Out" />
+        <item
+            android:id="@+id/nav_shovel_knight"
+            android:title="Shovel Knight" />
+        <item
+            android:id="@+id/nav_sonic"
+            android:title="Sonic" />
+        <item
+            android:id="@+id/nav_splatoon"
+            android:title="Splatoon" />
+        <item
+            android:id="@+id/nav_star_fox"
+            android:title="Star Fox" />
+        <item
+            android:id="@+id/nav_street_fighter"
+            android:title="Street Fighter" />
+        <item
+            android:id="@+id/nav_super_mario"
+            android:icon="@drawable/mario"
+            android:title="Super Mario" />
+        <item
+            android:id="@+id/nav_wii_fit"
+            android:title="Wii Fit" />
+        <item
+            android:id="@+id/nav_xenoblade"
+            android:title="Xenoblade" />
+        <item
+            android:id="@+id/nav_yoshi"
+            android:title="Yoshi's Woolly World" />
+
+    </group>
+</menu>
