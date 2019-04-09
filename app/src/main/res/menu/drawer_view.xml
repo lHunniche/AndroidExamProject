@@ -27,75 +27,99 @@
             android:title="Dark Souls" />
         <item
             android:id="@+id/nav_diablo"
+            android:icon="@drawable/diablo"
             android:title="Diablo" />
         <item
             android:id="@+id/nav_donkey_kong"
+            android:icon="@drawable/donkey_kong"
             android:title="Donkey Kong" />
         <item
             android:id="@+id/nav_earthbound"
+            android:icon="@drawable/earthbound"
             android:title="Earthbound" />
         <item
             android:id="@+id/nav_final_fantasy"
+            android:icon="@drawable/final_fantasy"
             android:title="Final Fantasy" />
         <item
             android:id="@+id/nav_fire_emblem"
+            android:icon="@drawable/fire_emblem"
             android:title="Fire Emblem" />
         <item
             android:id="@+id/nav_f_zero"
+            android:icon="@drawable/f_zero"
             android:title="F-Zero" />
         <item
             android:id="@+id/nav_kellogs"
+            android:icon="@drawable/kellogs"
             android:title="Kellogs" />
         <item
             android:id="@+id/nav_kid_icarus"
+            android:icon="@drawable/kid_icarus"
             android:title="Kid Icarus" />
         <item
             android:id="@+id/nav_kirby"
+            android:icon="@drawable/kirby"
             android:title="Kirby" />
         <item
             android:id="@+id/nav_zelda"
+            android:icon="@drawable/zelda"
             android:title="The Legend of Zelda" />
         <item
             android:id="@+id/nav_mario_sports_superstars"
+            android:icon="@drawable/mario_sports"
             android:title="Mario Sports Superstars" />
         <item
             android:id="@+id/nav_megaman"
+            android:icon="@drawable/megaman"
             android:title="Megaman" />
         <item
             android:id="@+id/nav_metroid"
+            android:icon="@drawable/metroid"
             android:title="Metroid" />
         <item
             android:id="@+id/nav_Mii"
+            android:icon="@drawable/mii"
             android:title="Mii" />
         <item
             android:id="@+id/nav_monster_hunter"
+            android:icon="@drawable/monster_hunter"
             android:title="Monster Hunter" />
         <item
             android:id="@+id/nav_pac_man"
+            android:icon="@drawable/pac_man"
             android:title="Pac-man" />
         <item
             android:id="@+id/nav_pikmin"
+            android:icon="@drawable/pikmin"
             android:title="Pikmin" />
         <item
             android:id="@+id/nav_pokemon"
+            android:icon="@drawable/pokemon"
             android:title="Pokémon" />
         <item
             android:id="@+id/nav_punch_out"
+            android:icon="@drawable/punch_out"
             android:title="Punch Out" />
         <item
             android:id="@+id/nav_shovel_knight"
+            android:icon="@drawable/shovel_knight"
             android:title="Shovel Knight" />
         <item
             android:id="@+id/nav_sonic"
+            android:icon="@drawable/sonic"
             android:title="Sonic" />
         <item
             android:id="@+id/nav_splatoon"
+            android:icon="@drawable/splatoon"
             android:title="Splatoon" />
         <item
             android:id="@+id/nav_star_fox"
+            android:icon="@drawable/star_fox"
             android:title="Star Fox" />
         <item
             android:id="@+id/nav_street_fighter"
+            android:icon="@drawable/street_fighter"
             android:title="Street Fighter" />
         <item
             android:id="@+id/nav_super_mario"
@@ -103,12 +127,15 @@
             android:title="Super Mario" />
         <item
             android:id="@+id/nav_wii_fit"
+            android:icon="@drawable/wii_fit"
             android:title="Wii Fit" />
         <item
             android:id="@+id/nav_xenoblade"
+            android:icon="@drawable/xenoblade"
             android:title="Xenoblade" />
         <item
             android:id="@+id/nav_yoshi"
+            android:icon="@drawable/yoshi"
             android:title="Yoshi's Woolly World" />
 
     </group>

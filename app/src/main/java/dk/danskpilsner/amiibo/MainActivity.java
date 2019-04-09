@@ -24,6 +24,12 @@ public class MainActivity extends AppCompatActivity {
         initDrawerLayout();
         initNavigationView();
         initToolbar();
+        initDrawerImages();
+    }
+
+    private void initDrawerImages()
+    {
+
     }
 
 
