@@ -24,12 +24,6 @@ public class MainActivity extends AppCompatActivity {
         initDrawerLayout();
         initNavigationView();
         initToolbar();
-        initDrawerImages();
-    }
-
-    private void initDrawerImages()
-    {
-
     }
 
 
@@ -40,7 +34,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void initNavigationView()
     {
+        // fetch navigation view object
         navigationView = findViewById(R.id.nav_view);
+
+        // add listener, to handle when a list item is clicked. The clicked item is parsed into the listener as "menuItem"
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener()
         {
             @Override
@@ -55,13 +52,20 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+        // this needs to be called, otherwise the icons will be mostly grey
         navigationView.setItemIconTintList(null);
     }
 
     private void initToolbar()
     {
+        // fetch toolbar object
         toolbar = findViewById(R.id.toolbar);
+
+        // set the activities action bar to the parsed actionbar
         setSupportActionBar(toolbar);
+
+        // get the reference to the action bar, enable home button and set icon
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null)
         {
@@ -71,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    // this method is necessary to detect when the burger icon is clicked
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
