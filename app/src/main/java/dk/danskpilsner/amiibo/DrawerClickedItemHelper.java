@@ -18,6 +18,9 @@ public class DrawerClickedItemHelper
             case R.id.nav_boxboy:
                 showBoxBoy(context);
                 break;
+            case R.id.nav_chibi_robo:
+                showChibiRobo(context);
+                break;
             case R.id.nav_classic_nintendo:
                 showClassicNintendo(context);
                 break;
@@ -117,7 +120,7 @@ public class DrawerClickedItemHelper
 
     private static void showAnimalCrossing(AppCompatActivity context)
     {
-        
+
     }
 
     private static void showBayonetta(AppCompatActivity context)
@@ -126,6 +129,11 @@ public class DrawerClickedItemHelper
     }
 
     private static void showBoxBoy(AppCompatActivity context)
+    {
+
+    }
+
+    private static void showChibiRobo(AppCompatActivity context)
     {
 
     }
