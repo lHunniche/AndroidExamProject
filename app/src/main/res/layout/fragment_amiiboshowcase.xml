@@ -11,6 +11,7 @@
         android:id="@+id/imgview_amiiboShowcase"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
+        android:layout_marginTop="56dp"
         app:layout_constraintBottom_toTopOf="@+id/txtview_amiiboShowcase_characterName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

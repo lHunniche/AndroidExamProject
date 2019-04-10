@@ -8,13 +8,15 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import dk.danskpilsner.amiibo.models.Amiibo;
 
 public class AmiiboShowcaseFragment extends Fragment {
     final static String POSITION = "position";
     int mCurrentPosition = -1;
     private ImageView amiiboShowcase;
-    private TextView amiiboName, amiiboGameSeries, amiiboSeries, AUreleaseDate, EUreleaseDate, JPreleaseDate, NAreleaseDate;
+    private TextView amiiboName, amiiboGameSeries, amiiboSeries, AUreleaseDate, EUreleaseDate, JPreleaseDate, NAreleaseDate, amiiboType;
     private Amiibo amiibo;
 
     @Override
@@ -28,6 +30,7 @@ public class AmiiboShowcaseFragment extends Fragment {
         EUreleaseDate = view.findViewById(R.id.txtview_amiiboShowcase_EUreleaseDate);
         JPreleaseDate = view.findViewById(R.id.txtview_amiiboShowcase_JPreleaseDate);
         NAreleaseDate = view.findViewById(R.id.txtview_amiiboShowcase_NAreleaseDate);
+        amiiboType = view.findViewById(R.id.txtview_amiiboShowcase_amiiboType);
 
     }
 
@@ -48,8 +51,8 @@ public class AmiiboShowcaseFragment extends Fragment {
         }
 
         // Inflate the layout for this fragment
-        amiiboShowcase = (ImageView) inflater.inflate(R.layout.fragment_amiiboshowcase, container, false);
-        return amiiboShowcase;
+        View v =  inflater.inflate(R.layout.fragment_amiiboshowcase, container, false);
+        return v;
     }
 
 
@@ -87,13 +90,16 @@ public class AmiiboShowcaseFragment extends Fragment {
     }
 
     public void setDetails(Amiibo amiibo) {
+        Glide.with(getActivity()).load(amiibo.getImage()).into(amiiboShowcase);
         amiiboName.setText(amiibo.getName());
         amiiboGameSeries.setText(amiibo.getGameSeries());
         amiiboSeries.setText(amiibo.getAmiiboSeries());
+        amiiboType.setText(amiibo.getType());
         AUreleaseDate.setText(amiibo.getRelease().getAu());
         EUreleaseDate.setText(amiibo.getRelease().getEu());
         JPreleaseDate.setText(amiibo.getRelease().getJp());
         NAreleaseDate.setText(amiibo.getRelease().getNa());
+
 
     }
 
