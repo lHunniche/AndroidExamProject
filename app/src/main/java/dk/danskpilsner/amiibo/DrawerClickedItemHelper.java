@@ -115,7 +115,7 @@ public class DrawerClickedItemHelper
                 makeNetWorkCallForAmiibos(context, "Yoshi's Woolly World");
                 break;
             case R.id.nav_zelda:
-                makeNetWorkCallForAmiibos(context, "Zelda");
+                makeNetWorkCallForAmiibos(context, "The Legend of Zelda");
                 break;
             default:
                 break;
@@ -160,17 +160,21 @@ public class DrawerClickedItemHelper
         AmiiboListFragment fragment = new AmiiboListFragment();
         fragment.setApiReponse(response.body());
         transaction.add(R.id.fragment_container, fragment);
-        transaction.addToBackStack(null);
+        //transaction.addToBackStack(null);
         transaction.commit();
     }
 
     private static void replaceContentOfFragment(AppCompatActivity context, Response<AmiiboList> response)
     {
-        FragmentTransaction transaction = context.getSupportFragmentManager().beginTransaction();
-        AmiiboListFragment fragment = new AmiiboListFragment();
-        fragment.setApiReponse(response.body());
-        transaction.replace(R.id.fragment_container, fragment);
-        transaction.addToBackStack(null);
-        transaction.commit();
+        AmiiboListFragment fragment = (AmiiboListFragment) context.getSupportFragmentManager().findFragmentById(R.id.fragment_container);
+        fragment.getAdapter().setAmiiboList(response.body());
+        fragment.getAdapter().notifyDataSetChanged();
+
+//        FragmentTransaction transaction = context.getSupportFragmentManager().beginTransaction();
+//        AmiiboListFragment fragment = new AmiiboListFragment();
+//        fragment.setApiReponse(response.body());
+//        transaction.replace(R.id.fragment_container, fragment);
+//        //transaction.addToBackStack(null);
+//        transaction.commit();
     }
 }

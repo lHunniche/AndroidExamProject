@@ -57,6 +57,11 @@ public class AmiiboListAdapter extends RecyclerView.Adapter<AmiiboListAdapter.My
         return amiiboList.getAmiibo().size();
     }
 
+    public void setAmiiboList(AmiiboList amiiboList)
+    {
+        AmiiboListAdapter.amiiboList = amiiboList;
+    }
+
     public static class MyViewHolder  extends RecyclerView.ViewHolder implements View.OnClickListener
     {
         private TextView name;

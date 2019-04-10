@@ -37,4 +37,10 @@ public class AmiiboListFragment extends Fragment
     {
         this.apiReponse = apiReponse;
     }
+
+    public AmiiboListAdapter getAdapter()
+    {
+        return adapter;
+    }
+
 }
