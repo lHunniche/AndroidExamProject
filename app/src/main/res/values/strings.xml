@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Amiibo Browser</string>
+    <string name="fragment_showcase_preCharacterSeries">From the game series: </string>
+    <string name="fragment_showcase_preCharacterName">Name: </string>
+    <string name="fragment_showcase_preAmiiboSeries">Amiibo series: </string>
+    <string name="fragment_showcase_preAmiiboType">Amiibo type: </string>
+
+    <string name="fragment_showcase_preReleaseDate">Release date: </string>
+    <string name="fragment_showcase_preReleaseAU">Australia: </string>
+    <string name="fragment_showcase_preReleaseEU">Europe: </string>
+    <string name="fragment_showcase_preReleaseJP">Japan: </string>
+    <string name="fragment_showcase_preReleaseNA">North America: </string>
+
+
 </resources>
