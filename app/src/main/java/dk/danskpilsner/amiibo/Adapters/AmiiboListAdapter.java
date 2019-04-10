@@ -71,6 +71,7 @@ public class AmiiboListAdapter extends RecyclerView.Adapter<AmiiboListAdapter.My
             this.amiiboSeries = amiiboSeries;
             this.type = type;
             this.image = image;
+            itemView.setOnClickListener(this);
 
         }
 
