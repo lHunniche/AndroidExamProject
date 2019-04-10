@@ -27,7 +27,7 @@ public class AmiiboListFragment extends Fragment
     public void onViewCreated(View view, Bundle savedIntanceState)
     {
         recyclerView = view.findViewById(R.id.amiibo_recyclerview);
-        adapter = new AmiiboListAdapter(apiReponse);
+        adapter = new AmiiboListAdapter(getContext(), apiReponse);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();

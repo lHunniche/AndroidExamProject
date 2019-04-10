@@ -1,5 +1,6 @@
 package dk.danskpilsner.amiibo.Adapters;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,16 +9,20 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import dk.danskpilsner.amiibo.R;
 import dk.danskpilsner.amiibo.models.AmiiboList;
 
 public class AmiiboListAdapter extends RecyclerView.Adapter<AmiiboListAdapter.MyViewHolder>
 {
     private AmiiboList amiiboList;
+    private Context context;
 
-    public AmiiboListAdapter(AmiiboList amiiboList)
+    public AmiiboListAdapter(Context context, AmiiboList amiiboList)
     {
         this.amiiboList = amiiboList;
+        this.context = context;
     }
 
     @NonNull
@@ -39,6 +44,7 @@ public class AmiiboListAdapter extends RecyclerView.Adapter<AmiiboListAdapter.My
         myViewHolder.name.setText(amiiboList.getAmiibo().get(i).getName());
         myViewHolder.amiiboSeries.setText(amiiboList.getAmiibo().get(i).getAmiiboSeries());
         myViewHolder.type.setText(amiiboList.getAmiibo().get(i).getType());
+        Glide.with(context).load(amiiboList.getAmiibo().get(i).getImage()).into(myViewHolder.image);
     }
 
     @Override
