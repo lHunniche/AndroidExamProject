@@ -21,8 +21,8 @@
     </FrameLayout>
 
     <!-- Layout to contain contents of main body of screen (drawer will slide over this) -->
-    <android.support.constraint.ConstraintLayout
-        android:id="@+id/constraint_layout"
+    <FrameLayout
+        android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

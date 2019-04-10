@@ -1,7 +1,13 @@
 package dk.danskpilsner.amiibo;
 
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+
+import dk.danskpilsner.amiibo.models.AmiiboList;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class DrawerClickedItemHelper
 {
@@ -118,10 +124,53 @@ public class DrawerClickedItemHelper
 
     }
 
-    private static void showAnimalCrossing(AppCompatActivity context)
+    private static void addNewFragment(AppCompatActivity context, Response<AmiiboList> response)
+    {
+        FragmentTransaction transaction = context.getSupportFragmentManager().beginTransaction();
+        AmiiboListFragment fragment = new AmiiboListFragment();
+        fragment.setApiReponse(response.body());
+        transaction.add(R.id.fragment_container, fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
+
+    private static void replaceContentOfFragment(AppCompatActivity context, Response<AmiiboList> response)
     {
 
     }
+
+    private static void showAnimalCrossing(AppCompatActivity context)
+    {
+        Call<AmiiboList> call = AmiiboServiceProvider.getService().getAmiibosFromSeries("Animal Crossing");
+        call.enqueue(new Callback<AmiiboList>()
+        {
+            @Override
+            public void onResponse(Call<AmiiboList> call, Response<AmiiboList> response)
+            {
+                if (context.getSupportFragmentManager().findFragmentById(R.id.fragment_container) != null)
+                {
+                    // replace content of list
+                    replaceContentOfFragment(context, response);
+                }
+                else
+                {
+                    // create new fragment, and do the transaction
+                    addNewFragment(context, response);
+                }
+
+
+            }
+
+            @Override
+            public void onFailure(Call<AmiiboList> call, Throwable t)
+            {
+
+            }
+        });
+    }
+
+
+
 
     private static void showBayonetta(AppCompatActivity context)
     {
