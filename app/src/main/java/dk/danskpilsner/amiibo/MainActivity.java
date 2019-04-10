@@ -13,7 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 
-import dk.danskpilsner.amiibo.Adapters.AmiiboListAdapter;
+import dk.danskpilsner.amiibo.adapters.AmiiboListAdapter;
 
 public class MainActivity extends AppCompatActivity {
 

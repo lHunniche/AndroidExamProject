@@ -1,4 +1,4 @@
-package dk.danskpilsner.amiibo;
+package dk.danskpilsner.amiibo.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
+import dk.danskpilsner.amiibo.R;
 import dk.danskpilsner.amiibo.models.Amiibo;
 
 public class AmiiboShowcaseFragment extends Fragment {

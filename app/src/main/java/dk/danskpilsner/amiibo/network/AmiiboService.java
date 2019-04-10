@@ -1,4 +1,4 @@
-package dk.danskpilsner.amiibo;
+package dk.danskpilsner.amiibo.network;
 
 import dk.danskpilsner.amiibo.models.AmiiboList;
 import retrofit2.Call;

@@ -1,4 +1,4 @@
-package dk.danskpilsner.amiibo.Adapters;
+package dk.danskpilsner.amiibo.adapters;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
-import dk.danskpilsner.amiibo.AmiiboShowcaseFragment;
+import dk.danskpilsner.amiibo.fragments.AmiiboShowcaseFragment;
 import dk.danskpilsner.amiibo.R;
 import dk.danskpilsner.amiibo.models.Amiibo;
 import dk.danskpilsner.amiibo.models.AmiiboList;

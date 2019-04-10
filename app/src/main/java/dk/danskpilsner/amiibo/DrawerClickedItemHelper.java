@@ -6,7 +6,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 
+import dk.danskpilsner.amiibo.fragments.AmiiboListFragment;
 import dk.danskpilsner.amiibo.models.AmiiboList;
+import dk.danskpilsner.amiibo.network.AmiiboServiceProvider;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

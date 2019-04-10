@@ -1,4 +1,4 @@
-package dk.danskpilsner.amiibo;
+package dk.danskpilsner.amiibo.network;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
