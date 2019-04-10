@@ -22,7 +22,7 @@ public class DrawerClickedItemHelper
                 makeNetWorkCallForAmiibos(context, "Bayonetta");
                 break;
             case R.id.nav_boxboy:
-                makeNetWorkCallForAmiibos(context, "BoxBoy");
+                makeNetWorkCallForAmiibos(context, "BoxBoy!");
                 break;
             case R.id.nav_chibi_robo:
                 makeNetWorkCallForAmiibos(context, "Chibi Robo");
@@ -166,36 +166,11 @@ public class DrawerClickedItemHelper
 
     private static void replaceContentOfFragment(AppCompatActivity context, Response<AmiiboList> response)
     {
-
-    }
-
-    private static void showAnimalCrossing(AppCompatActivity context)
-    {
-        Call<AmiiboList> call = AmiiboServiceProvider.getService().getAmiibosFromSeries("Animal Crossing");
-        call.enqueue(new Callback<AmiiboList>()
-        {
-            @Override
-            public void onResponse(Call<AmiiboList> call, Response<AmiiboList> response)
-            {
-                if (context.getSupportFragmentManager().findFragmentById(R.id.fragment_container) != null)
-                {
-                    // replace content of list
-                    replaceContentOfFragment(context, response);
-                }
-                else
-                {
-                    // create new fragment, and do the transaction
-                    addNewFragment(context, response);
-                }
-
-
-            }
-
-            @Override
-            public void onFailure(Call<AmiiboList> call, Throwable t)
-            {
-
-            }
-        });
+        FragmentTransaction transaction = context.getSupportFragmentManager().beginTransaction();
+        AmiiboListFragment fragment = new AmiiboListFragment();
+        fragment.setApiReponse(response.body());
+        transaction.replace(R.id.fragment_container, fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 }
