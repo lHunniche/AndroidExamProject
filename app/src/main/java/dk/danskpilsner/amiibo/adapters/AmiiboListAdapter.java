@@ -57,11 +57,6 @@ public class AmiiboListAdapter extends RecyclerView.Adapter<AmiiboListAdapter.My
         return amiiboList.getAmiibo().size();
     }
 
-    public void setAmiiboList(AmiiboList amiiboList)
-    {
-        AmiiboListAdapter.amiiboList = amiiboList;
-    }
-
     public static class MyViewHolder  extends RecyclerView.ViewHolder implements View.OnClickListener
     {
         private TextView name;
@@ -89,6 +84,12 @@ public class AmiiboListAdapter extends RecyclerView.Adapter<AmiiboListAdapter.My
             FragmentTransaction transaction = appCompatActivity.getSupportFragmentManager().beginTransaction();
             AmiiboShowcaseFragment fragment = new AmiiboShowcaseFragment();
             fragment.setAmiibo(amiibo);
+
+            // two first animations specify what the new fragment and current fragment should do, respectively.
+            // the last two animations specify what the new fragment and current fragment should do, respectively.
+            // this causes the fragments to slide from one to another, making it look super smooz and slick.
+            transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+
             transaction.replace(R.id.fragment_container, fragment);
             transaction.addToBackStack(null);
             transaction.commit();

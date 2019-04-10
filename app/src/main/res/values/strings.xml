@@ -10,6 +10,7 @@
     <string name="fragment_showcase_preReleaseEU">Europe: </string>
     <string name="fragment_showcase_preReleaseJP">Japan: </string>
     <string name="fragment_showcase_preReleaseNA">North America: </string>
+    <string name="transition_time">400</string>
 
 
 </resources>
