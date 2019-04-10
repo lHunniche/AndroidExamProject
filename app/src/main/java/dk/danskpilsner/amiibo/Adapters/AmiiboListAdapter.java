@@ -2,6 +2,8 @@ package dk.danskpilsner.amiibo.Adapters;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,18 +13,20 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
+import dk.danskpilsner.amiibo.AmiiboShowcaseFragment;
 import dk.danskpilsner.amiibo.R;
+import dk.danskpilsner.amiibo.models.Amiibo;
 import dk.danskpilsner.amiibo.models.AmiiboList;
 
 public class AmiiboListAdapter extends RecyclerView.Adapter<AmiiboListAdapter.MyViewHolder>
 {
-    private AmiiboList amiiboList;
-    private Context context;
+    private static AmiiboList amiiboList;
+    private static Context context;
 
     public AmiiboListAdapter(Context context, AmiiboList amiiboList)
     {
-        this.amiiboList = amiiboList;
-        this.context = context;
+        AmiiboListAdapter.amiiboList = amiiboList;
+        AmiiboListAdapter.context = context;
     }
 
     @NonNull
@@ -53,7 +57,7 @@ public class AmiiboListAdapter extends RecyclerView.Adapter<AmiiboListAdapter.My
         return amiiboList.getAmiibo().size();
     }
 
-    public static class MyViewHolder  extends RecyclerView.ViewHolder
+    public static class MyViewHolder  extends RecyclerView.ViewHolder implements View.OnClickListener
     {
         private TextView name;
         private TextView amiiboSeries;
@@ -67,6 +71,21 @@ public class AmiiboListAdapter extends RecyclerView.Adapter<AmiiboListAdapter.My
             this.amiiboSeries = amiiboSeries;
             this.type = type;
             this.image = image;
+
+        }
+
+        @Override
+        public void onClick(View view)
+        {
+            Amiibo amiibo = AmiiboListAdapter.amiiboList.getAmiibo().get(getLayoutPosition());
+
+            AppCompatActivity appCompatActivity = (AppCompatActivity) context;
+            FragmentTransaction transaction = appCompatActivity.getSupportFragmentManager().beginTransaction();
+            AmiiboShowcaseFragment fragment = new AmiiboShowcaseFragment();
+            fragment.setAmiibo(amiibo);
+            transaction.replace(R.id.fragment_container, fragment);
+            transaction.addToBackStack(null);
+            transaction.commit();
 
         }
     }

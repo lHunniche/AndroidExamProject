@@ -15,6 +15,7 @@ public class AmiiboShowcaseFragment extends Fragment {
     int mCurrentPosition = -1;
     private ImageView amiiboShowcase;
     private TextView amiiboName, amiiboGameSeries, amiiboSeries, AUreleaseDate, EUreleaseDate, JPreleaseDate, NAreleaseDate;
+    private Amiibo amiibo;
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
@@ -90,6 +91,11 @@ public class AmiiboShowcaseFragment extends Fragment {
         JPreleaseDate.setText(amiibo.getRelease().getJp());
         NAreleaseDate.setText(amiibo.getRelease().getNa());
 
+    }
+
+    public void setAmiibo(Amiibo amiibo)
+    {
+        this.amiibo = amiibo;
     }
 
 }
