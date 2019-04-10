@@ -69,14 +69,18 @@ public class AmiiboShowcaseFragment extends Fragment {
         // onStart is a good place to do this because the layout has already been
         // applied to the fragment at this point so we can safely call the method
         // below that sets the article text.
-        Bundle args = getArguments();
-        if (args != null) {
-            
-            updatePosition(args.getInt(POSITION));
-        } else if (mCurrentPosition != -1) {
-            // Set article based on saved instance state defined during onCreateView
-            updatePosition(mCurrentPosition);
+        if(this.amiibo != null) {
+            setDetails(this.amiibo);
         }
+
+        //Bundle args = getArguments();
+        //if (args != null) {
+            
+        //    updatePosition(args.getInt(POSITION));
+        //} else if (mCurrentPosition != -1) {
+            // Set article based on saved instance state defined during onCreateView
+        //    updatePosition(mCurrentPosition);
+       // }
     }
     public void updatePosition(int position){
         mCurrentPosition = position;
