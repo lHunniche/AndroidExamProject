@@ -78,19 +78,22 @@ public class DrawerClickedItemHelper
             @Override
             public void onResponse(Call<AmiiboList> call, Response<AmiiboList> response)
             {
-                if (context.getSupportFragmentManager().findFragmentById(R.id.fragment_container) != null)
-                {
-                    // replace content of list
-                    replaceContentOfFragment(context, response);
-                }
-                else
-                {
-                    // create new fragment, and do the transaction
-                    addNewFragment(context, response);
+                if (context.findViewById(R.id.fragment_container) != null) { // single-pane layout
+                    if (context.getSupportFragmentManager().findFragmentById(R.id.fragment_container) != null) {
+                        // replace content of list
+                        replaceContentOfFragment(context, response, R.id.fragment_container);
+                    } else {
+                        // create new fragment, and do the transaction
+                        addNewFragment(context, response, R.id.fragment_container);
+                    }
+                } else {
+                    if (context.getSupportFragmentManager().findFragmentById(R.id.amiibo_list) != null) {
+                        replaceContentOfFragment(context, response, R.id.amiibo_list);
+                    } else {
+                        addNewFragment(context, response, R.id.amiibo_list);
+                    }
                 }
                 progressBar.setVisibility(View.GONE);
-
-
             }
 
             @Override
@@ -101,21 +104,23 @@ public class DrawerClickedItemHelper
         });
     }
 
-    private static void addNewFragment(AppCompatActivity context, Response<AmiiboList> response)
+    private static void addNewFragment(AppCompatActivity context, Response<AmiiboList> response, int fragmentID)
     {
         FragmentTransaction transaction = context.getSupportFragmentManager().beginTransaction();
         AmiiboListFragment fragment = new AmiiboListFragment();
         fragment.setApiReponse(response.body());
-        transaction.add(R.id.fragment_container, fragment);
+        transaction.add(fragmentID, fragment);
+        transaction.addToBackStack(null);
         transaction.commit();
     }
 
-    private static void replaceContentOfFragment(AppCompatActivity context, Response<AmiiboList> response)
+    private static void replaceContentOfFragment(AppCompatActivity context, Response<AmiiboList> response, int fragmentID)
     {
         FragmentTransaction transaction = context.getSupportFragmentManager().beginTransaction();
         AmiiboListFragment fragment = new AmiiboListFragment();
         fragment.setApiReponse(response.body());
-        transaction.replace(R.id.fragment_container, fragment);
+        transaction.replace(fragmentID, fragment);
+        transaction.addToBackStack(null);
         transaction.commit();
     }
 }

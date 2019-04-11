@@ -81,21 +81,29 @@ public class AmiiboListAdapter extends RecyclerView.Adapter<AmiiboListAdapter.My
             //  fetching the Amiibo that is to be parsed into the new showcase fragment.
             Amiibo amiibo = AmiiboListAdapter.amiiboList.getAmiibo().get(getLayoutPosition());
 
+
             // using the activity context to get fragmentManager, and use him to start a fragment transaction.
             AppCompatActivity appCompatActivity = (AppCompatActivity) context;
             FragmentTransaction transaction = appCompatActivity.getSupportFragmentManager().beginTransaction();
             AmiiboShowcaseFragment fragment = new AmiiboShowcaseFragment();
             fragment.setAmiibo(amiibo);
 
-            // two first animations specify what the new fragment and current fragment should do, respectively.
-            // the last two animations specify what the new fragment and current fragment should do, respectively.
-            // this causes the fragments to slide from one to another, making it look super smooz and slick.
-            transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+            if (appCompatActivity.findViewById(R.id.fragment_container) != null) {
+                // two first animations specify what the new fragment and current fragment should do, respectively.
+                // the last two animations specify what the new fragment and current fragment should do, respectively.
+                // this causes the fragments to slide from one to another, making it look super smooz and slick.
+                transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+                transaction.replace(R.id.fragment_container, fragment);
+                transaction.addToBackStack(null);
 
-            transaction.replace(R.id.fragment_container, fragment);
-            transaction.addToBackStack(null);
+            } else {
+                if (appCompatActivity.getSupportFragmentManager().findFragmentById(R.id.amiibo_details) != null) {
+                    transaction.replace(R.id.amiibo_details, fragment);
+                } else {
+                    transaction.add(R.id.amiibo_details, fragment);
+                }
+            }
             transaction.commit();
-
         }
     }
 }

@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private AmiiboListAdapter adapter;
     private RecyclerView recyclerView;
-    private ProgressBar progresBar;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +37,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void initProgressBar()
     {
-        progresBar = findViewById(R.id.progressBar);
-        progresBar.setVisibility(View.GONE);
+        progressBar = findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.GONE);
     }
 
 
@@ -60,11 +60,11 @@ public class MainActivity extends AppCompatActivity {
             {
                 menuItem.setChecked(true);
                 drawerLayout.closeDrawers();
-                progresBar.setVisibility(View.VISIBLE);
+                progressBar.setVisibility(View.VISIBLE);
 
                 // Add code here to update the UI based on the item selected
                 // For example, swap UI fragments here
-                DrawerClickedItemHelper.handleClickedItem(MainActivity.this, menuItem, progresBar);
+                DrawerClickedItemHelper.handleClickedItem(MainActivity.this, menuItem, progressBar);
 
                 return true;
             }
