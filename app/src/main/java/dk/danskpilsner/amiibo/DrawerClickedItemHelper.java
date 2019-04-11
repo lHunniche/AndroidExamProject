@@ -2,6 +2,7 @@ package dk.danskpilsner.amiibo;
 
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.util.SparseArray;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -15,118 +16,59 @@ import retrofit2.Response;
 
 public class DrawerClickedItemHelper
 {
-    public static void handleClickedItem(AppCompatActivity context, MenuItem menuItem, ProgressBar progressBar)
-    {
-        switch (menuItem.getItemId())
-        {
-            case R.id.nav_animal_crossing:
-                makeNetWorkCallForAmiibos(context, "Animal Crossing", progressBar);
-                break;
-            case R.id.nav_bayonetta:
-                makeNetWorkCallForAmiibos(context, "Bayonetta", progressBar);
-                break;
-            case R.id.nav_boxboy:
-                makeNetWorkCallForAmiibos(context, "BoxBoy!", progressBar);
-                break;
-            case R.id.nav_chibi_robo:
-                makeNetWorkCallForAmiibos(context, "Chibi Robo", progressBar);
-                break;
-            case R.id.nav_classic_nintendo:
-                makeNetWorkCallForAmiibos(context, "Classic Nintendo", progressBar);
-                break;
-            case R.id.nav_dark_souls:
-                makeNetWorkCallForAmiibos(context, "Dark Souls", progressBar);
-                break;
-            case R.id.nav_diablo:
-                makeNetWorkCallForAmiibos(context, "Diablo", progressBar);
-                break;
-            case R.id.nav_donkey_kong:
-                makeNetWorkCallForAmiibos(context, "Donkey Kong", progressBar);
-                break;
-            case R.id.nav_earthbound:
-                makeNetWorkCallForAmiibos(context, "Earthbound", progressBar);
-                break;
-            case R.id.nav_f_zero:
-                makeNetWorkCallForAmiibos(context, "F-zero", progressBar);
-                break;
-            case R.id.nav_final_fantasy:
-                makeNetWorkCallForAmiibos(context, "Final Fantasy", progressBar);
-                break;
-            case R.id.nav_fire_emblem:
-                makeNetWorkCallForAmiibos(context, "Fire Emblem", progressBar);
-                break;
-            case R.id.nav_kellogs:
-                makeNetWorkCallForAmiibos(context, "Kellogs", progressBar);
-                break;
-            case R.id.nav_kid_icarus:
-                makeNetWorkCallForAmiibos(context, "Kid Icarus", progressBar);
-                break;
-            case R.id.nav_kirby:
-                makeNetWorkCallForAmiibos(context, "Kirby", progressBar);
-                break;
-            case R.id.nav_mario_sports_superstars:
-                makeNetWorkCallForAmiibos(context, "Mario Sports Superstars", progressBar);
-                break;
-            case R.id.nav_megaman:
-                makeNetWorkCallForAmiibos(context, "Megaman", progressBar);
-                break;
-            case R.id.nav_metroid:
-                makeNetWorkCallForAmiibos(context, "Metroid", progressBar);
-                break;
-            case R.id.nav_Mii:
-                makeNetWorkCallForAmiibos(context, "Mii", progressBar);
-                break;
-            case R.id.nav_monster_hunter:
-                makeNetWorkCallForAmiibos(context, "Monster Hunter", progressBar);
-                break;
-            case R.id.nav_pac_man:
-                makeNetWorkCallForAmiibos(context, "Pac-man", progressBar);
-                break;
-            case R.id.nav_pikmin:
-                makeNetWorkCallForAmiibos(context, "Pikmin", progressBar);
-                break;
-            case R.id.nav_pokemon:
-                makeNetWorkCallForAmiibos(context, "Pokemon", progressBar);
-                break;
-            case R.id.nav_punch_out:
-                makeNetWorkCallForAmiibos(context, "Punch Out", progressBar);
-                break;
-            case R.id.nav_shovel_knight:
-                makeNetWorkCallForAmiibos(context, "Shovel Knight", progressBar);
-                break;
-            case R.id.nav_sonic:
-                makeNetWorkCallForAmiibos(context, "Sonic", progressBar);
-                break;
-            case R.id.nav_splatoon:
-                makeNetWorkCallForAmiibos(context, "Splatoon", progressBar);
-                break;
-            case R.id.nav_star_fox:
-                makeNetWorkCallForAmiibos(context, "Star Fox", progressBar);
-                break;
-            case R.id.nav_street_fighter:
-                makeNetWorkCallForAmiibos(context, "Street Fighter", progressBar);
-                break;
-            case R.id.nav_super_mario:
-                makeNetWorkCallForAmiibos(context, "Super Mario", progressBar);
-                break;
-            case R.id.nav_wii_fit:
-                makeNetWorkCallForAmiibos(context, "Wii Fit", progressBar);
-                break;
-            case R.id.nav_xenoblade:
-                makeNetWorkCallForAmiibos(context, "Xenoblade", progressBar);
-                break;
-            case R.id.nav_yoshi:
-                makeNetWorkCallForAmiibos(context, "Yoshi's Woolly World", progressBar);
-                break;
-            case R.id.nav_zelda:
-                makeNetWorkCallForAmiibos(context, "The Legend of Zelda", progressBar);
-                break;
-            default:
-                break;
-        }
+    private static SparseArray<String> drawerMapping;
 
+    private static void initDrawerMapping()
+    {
+        drawerMapping = new SparseArray<>();
+
+        drawerMapping.append(R.id.nav_animal_crossing, "Animal Crossing");
+        drawerMapping.append(R.id.nav_bayonetta, "Bayonetta");
+        drawerMapping.append(R.id.nav_boxboy, "BoxBoy!");
+        drawerMapping.append(R.id.nav_chibi_robo, "Chibi Robo");
+        drawerMapping.append(R.id.nav_classic_nintendo, "Classic Nintendo");
+        drawerMapping.append(R.id.nav_dark_souls, "Dark Souls");
+        drawerMapping.append(R.id.nav_diablo, "Diablo");
+        drawerMapping.append(R.id.nav_donkey_kong, "Donkey Kong");
+        drawerMapping.append(R.id.nav_earthbound, "Earthbound");
+        drawerMapping.append(R.id.nav_f_zero, "F-zero");
+        drawerMapping.append(R.id.nav_final_fantasy, "Final Fantasy");
+        drawerMapping.append(R.id.nav_fire_emblem, "Fire Emblem");
+        drawerMapping.append(R.id.nav_kellogs, "Kellogs");
+        drawerMapping.append(R.id.nav_kid_icarus, "Kid Icarus");
+        drawerMapping.append(R.id.nav_kirby, "Kirby");
+        drawerMapping.append(R.id.nav_mario_sports_superstars, "Mario Sports Superstars");
+        drawerMapping.append(R.id.nav_megaman, "Megaman");
+        drawerMapping.append(R.id.nav_metroid, "Metroid");
+        drawerMapping.append(R.id.nav_Mii, "Mii");
+        drawerMapping.append(R.id.nav_monster_hunter, "Monster Hunter");
+        drawerMapping.append(R.id.nav_pac_man, "Pac-man");
+        drawerMapping.append(R.id.nav_pikmin, "Pikmin");
+        drawerMapping.append(R.id.nav_pokemon, "Pokemon");
+        drawerMapping.append(R.id.nav_punch_out, "Punch Out");
+        drawerMapping.append(R.id.nav_shovel_knight, "Shovel Knight");
+        drawerMapping.append(R.id.nav_sonic, "Sonic");
+        drawerMapping.append(R.id.nav_splatoon, "Splatoon");
+        drawerMapping.append(R.id.nav_star_fox, "Star Fox");
+        drawerMapping.append(R.id.nav_street_fighter, "Street Fighter");
+        drawerMapping.append(R.id.nav_super_mario, "Super Mario");
+        drawerMapping.append(R.id.nav_wii_fit, "Wii Fit");
+        drawerMapping.append(R.id.nav_xenoblade, "Xenoblade");
+        drawerMapping.append(R.id.nav_zelda, "The Legend of Zelda");
+        drawerMapping.append(R.id.nav_yoshi, "Yoshi's Woolly World");
 
     }
+
+    public static void handleClickedItem(AppCompatActivity context, MenuItem menuItem, ProgressBar progressBar)
+    {
+        if(drawerMapping == null)
+        {
+            initDrawerMapping();
+        }
+        makeNetWorkCallForAmiibos(context, drawerMapping.get(menuItem.getItemId()), progressBar);
+    }
+
+
 
     private static void makeNetWorkCallForAmiibos(AppCompatActivity context, String gameSeries, ProgressBar progressBar)
     {
@@ -165,21 +107,15 @@ public class DrawerClickedItemHelper
         AmiiboListFragment fragment = new AmiiboListFragment();
         fragment.setApiReponse(response.body());
         transaction.add(R.id.fragment_container, fragment);
-        //transaction.addToBackStack(null);
         transaction.commit();
     }
 
     private static void replaceContentOfFragment(AppCompatActivity context, Response<AmiiboList> response)
     {
-//        AmiiboListFragment fragment = (AmiiboListFragment) context.getSupportFragmentManager().findFragmentById(R.id.fragment_container);
-//        fragment.getAdapter().setAmiiboList(response.body());
-//        fragment.getAdapter().notifyDataSetChanged();
-
         FragmentTransaction transaction = context.getSupportFragmentManager().beginTransaction();
         AmiiboListFragment fragment = new AmiiboListFragment();
         fragment.setApiReponse(response.body());
         transaction.replace(R.id.fragment_container, fragment);
-        //transaction.addToBackStack(null);
         transaction.commit();
     }
 }

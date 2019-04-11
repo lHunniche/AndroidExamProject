@@ -78,8 +78,10 @@ public class AmiiboListAdapter extends RecyclerView.Adapter<AmiiboListAdapter.My
         @Override
         public void onClick(View view)
         {
+            //  fetching the Amiibo that is to be parsed into the new showcase fragment.
             Amiibo amiibo = AmiiboListAdapter.amiiboList.getAmiibo().get(getLayoutPosition());
 
+            // using the activity context to get fragmentManager, and use him to start a fragment transaction.
             AppCompatActivity appCompatActivity = (AppCompatActivity) context;
             FragmentTransaction transaction = appCompatActivity.getSupportFragmentManager().beginTransaction();
             AmiiboShowcaseFragment fragment = new AmiiboShowcaseFragment();
