@@ -25,6 +25,24 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center" />
 
+        <ImageView
+            android:id="@+id/choose_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/arrow"
+            android:layout_marginTop="25dp"
+            android:rotation="45"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/choose_text"
+            android:text="@string/choose_series_string"
+            android:layout_gravity="center"
+            android:layout_marginTop="175dp"
+            android:textColor="#000000"
+            android:textSize="22sp"/>
+
     </FrameLayout>
 
     <!-- Layout to contain contents of main body of screen (drawer will slide over this) -->

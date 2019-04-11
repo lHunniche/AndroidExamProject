@@ -11,7 +11,9 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import dk.danskpilsner.amiibo.adapters.AmiiboListAdapter;
 
@@ -23,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
     private AmiiboListAdapter adapter;
     private RecyclerView recyclerView;
     private ProgressBar progressBar;
+    private TextView chooseText;
+    private ImageView chooseImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +37,19 @@ public class MainActivity extends AppCompatActivity {
         initNavigationView();
         initToolbar();
         initProgressBar();
+        initChooseViews();
+    }
+
+    private void initChooseViews()
+    {
+        chooseImage = findViewById(R.id.choose_arrow);
+        chooseText = findViewById(R.id.choose_text);
+    }
+
+    private void hideChooseViews()
+    {
+        chooseText.setVisibility(View.GONE);
+        chooseImage.setVisibility(View.GONE);
     }
 
     private void initProgressBar()
@@ -61,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
                 menuItem.setChecked(true);
                 drawerLayout.closeDrawers();
                 progressBar.setVisibility(View.VISIBLE);
+                hideChooseViews();
 
                 // Add code here to update the UI based on the item selected
                 // For example, swap UI fragments here

@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Amiibo Browser</string>
+    <string name="fragment_showcase_preCharacterSeries">Spil serie: </string>
+    <string name="fragment_showcase_preCharacterName">Navn: </string>
+    <string name="fragment_showcase_preAmiiboSeries">Amiibo serie: </string>
+    <string name="fragment_showcase_preAmiiboType">Amiibo type: </string>
+
+    <string name="fragment_showcase_preReleaseDate">Udgivelsesdato: </string>
+    <string name="fragment_showcase_preReleaseAU">Australien: </string>
+    <string name="fragment_showcase_preReleaseEU">Europa: </string>
+    <string name="fragment_showcase_preReleaseJP">Japan: </string>
+    <string name="fragment_showcase_preReleaseNA">Nordamerika: </string>
+
+    <string name="transition_time">400</string>
+
+
+    <string name="choose_series_string">Vælg en spilserie fra oversigten</string>
+
+
+</resources>
